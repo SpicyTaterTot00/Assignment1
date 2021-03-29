@@ -1,48 +1,193 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+header{
+  text-align: center;
+}
+
+nav{
+  font-size: 12pt;
+  color: gold;
+}
+
+main{
+  color: darkblue;
+}
+
 body{
-  background-color: rgb(66, 97, 197);
+  background-color: darkblue;
 }
 
-h4{
-  color: rgb(184, 156, 34);
+img {
+  max-width: 100%;
+  height: auto;
+}
+h1{
+  color: darkred;
   text-align: center;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
   
 }
-
-P{
-  color: rgb(248, 250, 249);
+h2{
+  color: darkcyan;
   text-align: center;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-P2{
-  background-color:lightblue;
+p{
+  font-family: Arial, Helvetica, sans-serif;
+  color: darkblue;
+  font-size: 14pt;
+  text-align: center;
 }
-
-
-table,th,td{
-
-  border:1px solid black;
-}
-
-T1{
-  background-color: lightgrey;
-  color: black;
-}
-
-T2{
-  background-color: black;
+.thead{
+  background: black;
   color: white;
+}
+.odd{
+  background: cadetblue;
+}
+.even{
+  background: goldenrod;
 
 }
 
-#t01{
-  font-family: seriffont-family;
-  font-size: 1.5em;
+/* make a grid */
+.wrapper {
+  max-width: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 33.33%);
+  grid-gap: 10px;
+}
+
+.wrapper > * {
+  background-color: darkcyan;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+  /* needed for the floated layout*/
+  margin-bottom: 10px;
+}
+
+.left {
+  float: left;
+  grid-column: 1;
+}
+
+.middle {
+  float: center;
+  grid-column: 2;
+}
+.middle li{
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  size: 12pt;
+}
+
+.right {
+  float: right;
+  grid-column: 3;
+}
+
+@media (max-width: 800px){
+  .leftcolumn, .middlecolumn, .rightcolumn{
+    grid-column: 1 / -1;
+
+  }
+}
+
+.header {
+  color: darkred;
+  font-family: Arial, Helvetica, sans-serif;
+  grid-column: 1 / -1;
+  clear: both;
+}
+
+.footer {
+  color: darkred;
+  font-family: Arial, Helvetica, sans-serif;
+  grid-column: 1 / -1;
+  clear: both;
   
 }
-  
+
+.footer p{
+  text-align: right;
+  font-size: 8pt;
+  color: darkred;
+}
 
 
+section{
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:goldenrod;
+  color: white;
+  border: 2px solid black;
+  margin: 1%;
+  height: auto;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 12pt;
+  width:100%;
+
+}
+
+input[type=text] {
+  border-radius:10px;
+  width:100%;
+}
+
+input[type=email] {
+  border-radius:10px;
+  width:100%;
+}
+
+input[type=password] {
+  border-radius:10px;
+  width:100%;
+}
+
+select{
+  border-radius:10px;
+  width:100%;
+}
+
+input[type=date] {
+  border-radius:10px;
+  width:100%;
+}
+
+input[type=submit]{
+
+  /* remove default behavior */
+  appearance:none;
+  -webkit-appearance:none;
+
+  /* usual styles */
+  padding:10px;
+  border:none;
+  background-color:darkred;
+  color:ghostwhite;
+  font-weight:600;
+  border-radius:5px;
+  width:100%;
+
+}
+
+
+table, th, td{
+  border: 1px solid black;
+
+}
+
+/* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
+@supports (display: grid) {
+  .wrapper > * {
+    width: auto;
+    margin: 0;
+  }
+}
